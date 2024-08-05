@@ -12,7 +12,7 @@ import { HoneypotInputs } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
 import { ErrorList, Field } from '#app/components/forms.tsx'
-import { StatusButton } from '#app/components/ui/status-button.tsx'
+import { StatusButton } from '#app/components/status-button.tsx'
 import {
 	ProviderConnectionForm,
 	providerNames,

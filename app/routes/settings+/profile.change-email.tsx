@@ -10,8 +10,8 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react'
 import { z } from 'zod'
 import { ErrorList, Field } from '#app/components/forms.tsx'
-import { Icon } from '#app/components/ui/icon.tsx'
-import { StatusButton } from '#app/components/ui/status-button.tsx'
+import { Icon } from '#app/components/icon.tsx'
+import { StatusButton } from '#app/components/status-button.tsx'
 import {
 	prepareVerification,
 	requireRecentVerification,

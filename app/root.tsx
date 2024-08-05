@@ -20,20 +20,20 @@ import {
 import { withSentry } from '@sentry/remix'
 import { useRef } from 'react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
-import { GeneralErrorBoundary } from './components/error-boundary.tsx'
-import { EpicProgress } from './components/progress-bar.tsx'
-import { SearchBar } from './components/search-bar.tsx'
-import { useToast } from './components/toaster.tsx'
-import { Button } from './components/ui/button.tsx'
+import { Button } from './components/button.tsx'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuPortal,
 	DropdownMenuTrigger,
-} from './components/ui/dropdown-menu.tsx'
-import { Icon, href as iconsHref } from './components/ui/icon.tsx'
-import { EpicToaster } from './components/ui/sonner.tsx'
+} from './components/dropdown-menu.tsx'
+import { GeneralErrorBoundary } from './components/error-boundary.tsx'
+import { Icon, href as iconsHref } from './components/icon.tsx'
+import { EpicProgress } from './components/progress-bar.tsx'
+import { SearchBar } from './components/search-bar.tsx'
+import { EpicToaster } from './components/sonner.tsx'
+import { useToast } from './components/toaster.tsx'
 import { ThemeSwitch, useTheme } from './routes/resources+/theme-switch.tsx'
 import tailwindStyleSheetUrl from './styles/tailwind.css?url'
 import { getUserId, logout } from './utils/auth.server.ts'

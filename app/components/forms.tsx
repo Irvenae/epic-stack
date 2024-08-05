@@ -1,16 +1,16 @@
 import { useInputControl } from '@conform-to/react'
 import { REGEXP_ONLY_DIGITS_AND_CHARS, type OTPInputProps } from 'input-otp'
 import React, { useId } from 'react'
-import { Checkbox, type CheckboxProps } from './ui/checkbox.tsx'
+import { Checkbox, type CheckboxProps } from './checkbox.tsx'
 import {
 	InputOTP,
 	InputOTPGroup,
 	InputOTPSeparator,
 	InputOTPSlot,
-} from './ui/input-otp.tsx'
-import { Input } from './ui/input.tsx'
-import { Label } from './ui/label.tsx'
-import { Textarea } from './ui/textarea.tsx'
+} from './input-otp.tsx'
+import { Input } from './input.tsx'
+import { Label } from './label.tsx'
+import { Textarea } from './textarea.tsx'
 
 export type ListOfErrors = Array<string | null | undefined> | null | undefined
 

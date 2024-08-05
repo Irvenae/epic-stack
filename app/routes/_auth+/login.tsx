@@ -12,7 +12,7 @@ import { z } from 'zod'
 import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
 import { CheckboxField, ErrorList, Field } from '#app/components/forms.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
-import { StatusButton } from '#app/components/ui/status-button.tsx'
+import { StatusButton } from '#app/components/status-button.tsx'
 import { login, requireAnonymous } from '#app/utils/auth.server.ts'
 import {
 	ProviderConnectionForm,
