@@ -5,6 +5,7 @@ import { flatRoutes } from 'remix-flat-routes'
 import { defineConfig } from 'vite'
 
 const MODE = process.env.NODE_ENV
+const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({
 	build: {
@@ -28,7 +29,7 @@ export default defineConfig({
 		},
 	},
 	plugins: [
-		remix({
+		!isStorybook && remix({
 			ignoredRouteFiles: ['**/*'],
 			serverModuleFormat: 'esm',
 			routes: async (defineRoutes) => {
