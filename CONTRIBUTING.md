@@ -52,7 +52,7 @@ cp .env.example .env
 npm install
 
 # setup database
-npx prisma migrate reset --force
+npm run setup
 
 # Install playwright browsers
 npm run test:e2e:install

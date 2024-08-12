@@ -8,6 +8,7 @@
     ship their ideas to production faster and on a more stable foundation based
     on the experience of <a href="https://kentcdodds.com">Kent C. Dodds</a> and
     <a href="https://github.com/epicweb-dev/epic-stack/graphs/contributors">contributors</a>.
+    In this version the main difference is that Prisma ORM is replaced by Drizzle ORM.
   </p>
 </div>
 

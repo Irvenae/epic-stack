@@ -33,8 +33,8 @@ const userCanCreateTheirOwnNotes = userHasPermission(user, 'create:note:own')
 const userIsUser = userHasRole(user, 'user')
 ```
 
-There is currently no UI for managing permissions, but you can use prisma studio
-for establishing these.
+There is currently no UI for managing permissions, but you can use Drizzle
+studio for establishing these.
 
 ## Seeding the production database
 

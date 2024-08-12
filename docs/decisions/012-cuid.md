@@ -76,6 +76,6 @@ Use CUIDs for all models instead of UUIDs.
 No migration is necessary since the data type for CUIDs and UUIDs is both
 "string". If any existing application wants to proactively update old values to
 CUIDs, that's fine, but not completely necessary. All that needs to be updated
-is the prisma schema for a few of the models that were using UUIDs. Generating a
-new version of the client (which happens automatically at build time) is
-sufficient to handle this schema change.
+is the schema for a few of the models that were using UUIDs. Generating a new
+version of the client (which happens automatically at build time) is sufficient
+to handle this schema change.

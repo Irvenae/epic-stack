@@ -29,7 +29,7 @@ lease:
     key: 'epic-stack-litefs/${FLY_APP_NAME}'
 
 exec:
-  - cmd: npx prisma migrate deploy
+  - cmd: npx drizzle-kit push --config ./app/db.server/config.ts
     if-candidate: true
 
   # Set the journal mode for the database to WAL. This reduces concurrency deadlock issues

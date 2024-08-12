@@ -28,14 +28,11 @@ but when we do it's likely we wouldn't use database subscriptions anyway).
 
 SQLite being a file on disk does make connecting from external clients
 effectively impossible. This makes it more difficult to connect to it using
-database admin tools. However, it is possible to run tools like `prisma studio`
+database admin tools. However, it is possible to run tools like `drizzle studio`
 on the machine where the sqlite volume is mounted if necessary. And the
 `Dockerfile` is already configured to allow easy SSH connections into the sqlite
 CLI. This is nowhere near as good as a proper admin tool, but there's likely
-more that could be done here to improve the experience. On my own website
-(kentcdodds.com), I am able to have prisma studio run in production protected by
-authentication and I expect we'll be able to add something like that to the Epic
-Stack in the future.
+more that could be done here to improve the experience.
 
 SQLite does not support plugins like
 [TimescaleDB](https://github.com/timescale/timescaledb) for Postgres. While
@@ -47,10 +44,7 @@ SQLite does not support enums which means you're forced to use strings. I have
 mixed feelings about this, but I mostly don't like enums anyway. The main
 drawback to this is when it comes to the typings for the client which doesn't
 allow you to ensure all values of a column are only within a set of specific
-possible values for the string. However, with Prisma client extensions, handling
-this kind of enforcement at the client (and typing) level should be possible.
-This would need to be documented in the future
-[#29](https://github.com/epicweb-dev/epic-stack/issues/29).
+possible values for the string.
 
 As a file on disk, you cannot "distribute" SQLite directly. However, with tools
 like [Turso](https://turso.tech/) or [LiteFS](https://fly.io/docs/litefs), you

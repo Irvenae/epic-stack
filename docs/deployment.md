@@ -178,13 +178,13 @@ Create a file at other/docker-entry-point.sh with the contents below.
 ```
 #!/bin/sh -ex
 
-npx prisma migrate deploy
+npm run db:apply
 sqlite3 /litefs/data/sqlite.db "PRAGMA journal_mode = WAL;"
 sqlite3 /litefs/data/cache.db "PRAGMA journal_mode = WAL;"
 npm run start
 ```
 
-This takes care of applying the prisma migrations, followed by launching the
+This takes care of applying the Drizzle migrations, followed by launching the
 node application (on port 8081).
 
 Helpful commands:

@@ -38,11 +38,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
 	// 2. Time functions
 	const owner = await time(
 		() =>
-			prisma.user.findUnique({
-				where: {
-					username: params.username,
-				},
-				select: {
+			db.query.user.findFirst({
+				where: eq(schema.user.username, params.username),
+				columns: {
 					id: true,
 					username: true,
 					name: true,
@@ -57,11 +55,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
 	// 2. Time functions
 	const notes = await time(
 		() =>
-			prisma.note.findMany({
-				where: {
-					ownerId: owner.id,
-				},
-				select: {
+			db.query.note.findMany({
+				where: eq(schema.note.ownerId, owner.id),
+				columns: {
 					id: true,
 					title: true,
 				},

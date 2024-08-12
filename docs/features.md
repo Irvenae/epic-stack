@@ -19,7 +19,7 @@ Here are a few things you get today:
   password/password reset support.
 - Progressively Enhanced and fully type safe forms with
   [Conform](https://conform.guide/)
-- Database ORM with [Prisma](https://prisma.io/)
+- Database ORM with [Drizzle](https://orm.drizzle.team/)
 - Role-based User Permissions.
 - Custom built image hosting
 - Caching via [cachified](https://npm.im/@epic-web/cachified): Both in-memory

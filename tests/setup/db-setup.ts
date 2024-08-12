@@ -1,26 +1,34 @@
 import path from 'node:path'
+import Database from 'better-sqlite3'
+import { type BetterSQLite3Database, drizzle } from 'drizzle-orm/better-sqlite3'
 import fsExtra from 'fs-extra'
 import { afterAll, afterEach, beforeAll } from 'vitest'
-import { cleanupDb } from '#tests/db-utils.ts'
 import { BASE_DATABASE_PATH } from './global-setup.ts'
 
-const databaseFile = `./tests/prisma/data.${process.env.VITEST_POOL_ID || 0}.db`
+const databaseFile = `./tests/drizzle/data.${process.env.VITEST_POOL_ID || 0}.db`
 const databasePath = path.join(process.cwd(), databaseFile)
-process.env.DATABASE_URL = `file:${databasePath}`
+process.env.DATABASE_PATH2 = databasePath
 
+// @ts-ignore
+let client
+let db: BetterSQLite3Database<Record<string, unknown>>
 beforeAll(async () => {
-	await fsExtra.copyFile(BASE_DATABASE_PATH, databasePath)
+  const { schema } = await import('#app/db.server/index.ts')
+  await fsExtra.copyFile(BASE_DATABASE_PATH, databasePath)
+  client = new Database(process.env.DATABASE_PATH2)
+  db = drizzle(client, { schema })
 })
 
 // we *must* use dynamic imports here so the process.env.DATABASE_URL is set
 // before prisma is imported and initialized
 afterEach(async () => {
-	const { prisma } = await import('#app/utils/db.server.ts')
-	await cleanupDb(prisma)
+  const { cleanupDb2 } = await import('#tests/db-utils.ts')
+  // @ts-ignore
+  await cleanupDb2(db, false)
 })
 
 afterAll(async () => {
-	const { prisma } = await import('#app/utils/db.server.ts')
-	await prisma.$disconnect()
-	await fsExtra.remove(databasePath)
+  // @ts-ignore
+  client.close()
+  await fsExtra.remove(databasePath)
 })
